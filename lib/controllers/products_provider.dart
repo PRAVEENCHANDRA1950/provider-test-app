@@ -14,8 +14,8 @@ class ProductsProvider with ChangeNotifier {
       _filteredProducts.isEmpty ? _products : _filteredProducts;
 
   fetchProducts() async {
-    final List _data = productsJson;
-    _products = _data.map((e) => Product.fromJson(e)).toList();
+    final List data = productsJson;
+    _products = data.map((e) => Product.fromJson(e)).toList();
 
     notifyListeners();
   }
