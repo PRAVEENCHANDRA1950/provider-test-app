@@ -13,6 +13,9 @@ class ProductsProvider with ChangeNotifier {
   List<Product> get allProducts =>
       _filteredProducts.isEmpty ? _products : _filteredProducts;
 
+  int get productCount =>
+      _filteredProducts.isEmpty ? _products.length : _filteredProducts.length;
+
   fetchProducts() async {
     final List data = productsJson;
     _products = data.map((e) => Product.fromJson(e)).toList();

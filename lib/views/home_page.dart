@@ -15,9 +15,10 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text("Home Page"),
         actions: [
-          Consumer<ProductsProvider>(builder: (context, value, child) {
-            return Text("${value.allProducts.length}");
-          }),
+          Selector<ProductsProvider, int>(
+            selector: (context, provider) => provider.productCount,
+            builder: (context, val, _) => Text("$val"),
+          ),
           SizedBox(
             width: 80,
           )
